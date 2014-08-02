@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-    <title>Agregar Estudiante</title>
+    <title>Agregar Carrera</title>
     <link type="image/x-icon" href="icono.ico" rel="icon" />
 </head>
 
@@ -56,44 +56,31 @@
         <center>
             <div class="row">
                 <div class="well col-xs-5 col-xs-offset-3 ">
-                    <h4>Agregar Estudiante
-                        <span class="label label-success">Nuevo</span>
+                    <h4>Agregar Carrera
+                        <span class="label label-success">Nueva</span>
                     </h4>
                     <form action="">
 
                         <div>
                             <div class="input-group">
                                 <span class="input-group-addon">
-                                    <span class="glyphicon glyphicon-user"></span>
+                                    <span class="glyphicon glyphicon-barcode"></span>
                                 </span>
-                                <input type="text" class="form-control" placeholder="Nombre">
+                                <input id="codigo" type="text" class="form-control" placeholder="Codigo">
                             </div>
                             <br>
                             <div class="input-group">
                                 <span class="input-group-addon">
-                                    <span class="glyphicon glyphicon-user"></span>
+                                    <span class="glyphicon glyphicon-font"></span>
                                 </span>
-                                <input type="text" class="form-control" placeholder="Cedula">
+                                <input id="nombre" type="text" class="form-control" placeholder="Nombre de la Carrera">
                             </div>
-                            <br>
-                            <div class="form-group">
 
-                                <select id="selectCarreras" class="form-control">
-
-                                </select>
-                            </div>
-                            <br>
-                            <div class="input-group">
-                                <span class="input-group-addon">
-                                    <span class="glyphicon glyphicon-user"></span>
-                                </span>
-                                <input type="text" class="form-control" placeholder="Nivel de Ingles">
-                            </div>
                             <br>
                             <button class="btn btn-success" type="submit" id="btnGuardarCarrera">
-                                <span class="glyphicon glyphicon-floppy-disk"></span>  Guardar</button>
+                                <span class="glyphicon glyphicon-floppy-disk"></span>Guardar</button>
                             <button class="btn btn-danger" type="submit" id="btnCancelar">
-                                <span class="glyphicon glyphicon-share-alt"></span>  Cancelar</button>
+                                <span class="glyphicon glyphicon-share-alt"></span>Cancelar</button>
                         </div>
 
 
@@ -112,8 +99,7 @@
     <script type="text/javascript" src="js/bootstrap.js"></script>
     <script type="text/javascript" src="js/localstorage.js"></script>
     <script type="text/javascript">
-    prepareBinding();
-    fnCargarCarreras();
+            prepareBinding();
     </script>
 
 
