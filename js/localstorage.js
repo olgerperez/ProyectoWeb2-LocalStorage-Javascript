@@ -6,6 +6,9 @@ function prepareBinding() {
     $("#btnGuardarCarrera").click(function() {
         guardarCarrera();
     });
+    $("#btnGuardarEstudiante").click(function() {
+        guardarEstdiantes();
+    });
 
 }
 
@@ -55,6 +58,54 @@ function guardarCarrera() {
     }
 }
 
+function guardarEstdiantes() {
+    // obtener datos del form
+    var cedula = document.getElementById('cedula').value,
+        nombre = document.getElementById('nombre').value,
+        apellidos = document.getElementById('apellidos').value,
+        imagen = document.getElementById('imagen').files[0].name,
+        nivel = document.getElementById('nivel').value,
+        carrera = document.getElementById('selectCarreras').value;
+
+
+
+    if (cedula.length == 0 || nombre.length == 0 || apellidos.length == 0 || imagen.length == 0 || nivel.length == 0 || carrera == 0) {
+        alert("NO PUEDE INGRESAR UNA CARRERA CON CAMPOS EN BLANCOS")
+    } else {
+
+
+        // crear objeto estudiante
+        var estudiante = {
+            "cedula": cedula,
+            "nombre": nombre,
+            "apellidos": apellidos,
+            "imagen": imagen,
+            "nivel": nivel,
+            "carrera": carrera
+        };
+
+        // leer los estudiantes de localstorage
+        var estu = JSON.parse(localStorage.getItem('Estudiantes'));
+        if (estu === null) {
+            estu = [];
+        }
+
+        // agregar el estudiante
+        estu.push(estudiante);
+
+        // volver guardar en localstoraage
+        localStorage.setItem('Estudiantes', JSON.stringify(estu));
+
+        //    document.getElementById('cedula').value = "";
+        //   document.getElementById('nombre').value = "";
+        //   document.getElementById('apellidos').value = "";
+        //   document.getElementById('imagen').value = "";
+        //   document.getElementById('nivel').value = "";
+        alert("ESTUDIANTE AGREGADO CON EXITO")
+
+    }
+}
+
 
 
 function deleteStudent(element) {
@@ -67,30 +118,34 @@ function deleteStudent(element) {
 
 }
 
-function fnCreateTable() {
+function crearTabla() {
 
-    var headingTable = "<tr><th>Cédula</th><th>Nombre</th><th>Función</th></tr>";
-    var users = JSON.parse(localStorage.getItem('Users'));
-    var tableUsers = headingTable;
+    var headingTable = "<tr><th>Imagen</th><th>Cédula</th><th>Nombre</th><th>Apellidos</th><th>Carrera</th><th>Ingles</th><th></th></tr>";
+    var estu = JSON.parse(localStorage.getItem('Estudiantes'));
+    var tablaestu = headingTable;
     debugger;
-    for (var i = 1; i < users.length; i++) {
-        if (users != undefined) {
-            tableUsers += "<tr>";
-            tableUsers += '<td><a href="#">' + users[i].ID + '</a></td>';
-            tableUsers += '<td>' + users[i].name + " " + users[i].lastname + '</td>';
-            tableUsers += '<td>' + users[i].role + '</td>';
-            tableUsers += "<td>";
-            tableUsers += '<div class="btn-group">';
-            tableUsers += '<button type="button" class="btn btn-primary dropdown-toggle">Opciones</button>';
-            tableUsers += '<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"><span class="caret"></span><span class="sr-only">Toggle Dropdown</span></button>';
-            tableUsers += '<ul class="dropdown-menu" role="menu"><li><a class="clsShowUser" id="' + users[i].ID +
-                '" data-toggle="modal" data-target="#' + users[i].ID + '" href="#"><img src="../../assets/img/showP.png" width="45" height="35" ></a></li><li><a class="clsEditUser" id="' + users[i].ID +
-                '" href="#"><img src="../../assets/img/editP.png" width="45" height="35"></a></li><li><a class="clsDeleteUser" id="' + users[i].ID + '" href="#"><img src="../../assets/img/deleteP.png" width="45" height="35"></a></li></ul>';
-            tableUsers += '</div>';
-            tableUsers += "</td>";
-            tableUsers += "</tr>";
+    for (var i = 0; i < estu.length; i++) {
+        if (estu != undefined) {
+            tablaestu += "<tr>";
+            tablaestu += '<td > <img alt="Imagen" src="Imagenes/' + estu[i].imagen + '" width="40" height="35"' + ' /></td>';
+            tablaestu += '<td>' + estu[i].cedula + '</td>';
+            tablaestu += '<td>' + estu[i].nombre + '</td>';
+            tablaestu += '<td>' + estu[i].apellidos + '</td>';
+            tablaestu += '<td>' + estu[i].carrera + '</td>';
+            tablaestu += '<td>' + estu[i].nivel + '</td>';
+            //tablaestu += '<td> <span><img src="Imagenes/edit.png" class="img-responsive" alt="Image"></span>  <span> <img src="Imagenes/delete.png" class="img-responsive" alt="Image"> </span></td>';
+            //  tablaestu += '<td> <a href="Estudiantes.html">
+            //                            <img src="Imagenes/delete.png" class="img-responsive" alt="Image">
+            //                       </a>
+            //                      <a href="Estudiantes.html">
+            //                         <img src="Imagenes/edit.png" class="img-responsive" alt="Image">
+            //                    </a> </td>';
+            // tablaestu += "<td>";
+            //tablaestu += "</td>";
+            tablaestu += '<td><a type="button" class="btn btn-default editUser" id="' + estu[i].cedula + '"><span ><img src="Imagenes/editaaar.png" class="img-responsive" alt="Image" ></span></a>';
+            tablaestu += '<a href="#" type="button" class="delete btn btn-default" id="' + estu[i].cedula + '"><span><img src="Imagenes/deleteee.png" class="img-responsive" alt="Image"></span></a></td>';
 
-            document.getElementById("tableUser").innerHTML = tableUsers;
+            document.getElementById("tablaestudiantes").innerHTML = tablaestu;
         }
     }
 }
