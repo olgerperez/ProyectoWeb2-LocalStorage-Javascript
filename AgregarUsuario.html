@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <title>Agregar Usuario</title>
+    <link type="image/x-icon" href="icono.ico" rel="icon" />
+</head>
+
+<body>
+
+    <div class="container" id="div">
+        <br>
+        <br>
+
+        <nav class="navbar navbar-default" role="navigation">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Universidad Tecnica Nacional</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="index.html">
+                            <span class="glyphicon glyphicon-th-large"></span>Dashboard</a>
+                    </li>
+                    <li>
+                        <a href="Estudiantes.html">
+                            <span class="glyphicon glyphicon-user"></span>Estudiantes</a>
+                    </li>
+                    <li>
+                        <a href="Carreras.html">
+                            <span class="glyphicon glyphicon-calendar"></span>Carreras</a>
+                    </li>
+                    <li>
+                        <a href="Usuarios.html">
+                            <span class="glyphicon glyphicon-collapse-up"></span>Usuarios</a>
+                    </li>
+
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </nav>
+        <br>
+        <center>
+            <div class="row">
+                <div class="well col-xs-5 col-xs-offset-3 ">
+                    <h4>Agregar Usuario
+                        <span class="label label-success">Nuevo</span>
+                    </h4>
+                    <form action="">
+
+                        <div>
+                            <br>
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-sound-5-1"></span>
+                                </span>
+                                <input type="text" class="form-control" placeholder="Cedula" id="cedula">
+                            </div>
+                            <br>
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-user"></span>
+                                </span>
+                                <input type="text" class="form-control" placeholder="Nombre" id="nombre">
+                            </div>
+                            <br>
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-hand-right"></span>
+                                </span>
+                                <input type="text" class="form-control" placeholder="Apellidos" id="apellidos">
+                            </div>
+                            <br>
+                            <div class="form-group">
+                                <select id="selectCarreras" class="form-control">
+                                    <option>Coche</option>
+                                    <option>Avión</option>
+                                </select>
+                            </div>
+                            <br>
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-chevron-down"></span>
+                                </span>
+                                <input type="password" class="form-control" placeholder="Contraseña" id="nivel">
+                            </div>
+                            <br>
+                            <button class="btn btn-success" type="submit" id="btnGuardarEstudiante">
+                                <span class="glyphicon glyphicon-floppy-disk"></span>Guardar</button>
+
+                            <button class="btn btn-danger" type="submit" id="btnCancelar">
+                                <a href="Estudiantes.html">
+                                    <span class="glyphicon glyphicon-share-alt"></span>Cancelar</button>
+                            </a>
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </center>
+
+
+    </div>
+
+    <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.js"></script>
+    <script type="text/javascript" src="js/bootstrap-filestyle.min.js"></script>
+    <script type="text/javascript" src="js/localstorage.js"></script>
+    <script type="text/javascript">
+    prepareBinding();
+    </script>
+
+
+
+</body>
+
+</html>
