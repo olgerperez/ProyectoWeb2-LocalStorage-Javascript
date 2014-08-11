@@ -1,38 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<meta charset="UTF-8">
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-	<title>Carreras</title>
-	<link type="image/x-icon" href="icono.ico" rel="icon" /> 
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Dashboard</title>
+    <link type="image/x-icon" href="icono.ico" rel="icon" />
 </head>
+
 <body>
-	<nav class="navbar navbar-default" role="navigation">
-		<!-- Brand and toggle get grouped for better mobile display -->
-		<div class="navbar-header">
-			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-				<span class="sr-only">Toggle navigation</span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-			</button>
-			<a class="navbar-brand" href="index.html">Universidad Tecnica Nacional</a>
-		</div>
-	
-		<!-- Collect the nav links, forms, and other content for toggling -->
-		<div class="collapse navbar-collapse navbar-ex1-collapse">
+    <div class="container" id="div">
 
-			<ul class="nav navbar-nav navbar-right">
-				<li><a href="index.html" ><span class="glyphicon glyphicon-th-large"></span> Dashboard</a></li>
-				<li><a href="Estudiantes.html"><span class="glyphicon glyphicon-user"></span> Estudiantes</a></li>
-				<li><a href="Carreras.html"><span class="glyphicon glyphicon-calendar"></span> Carreras</a></li>
-				<li><a href="Usuarios.html"><span class="glyphicon glyphicon-collapse-up"></span> Usuarios</a></li>
-				
-			</ul>
-		</div><!-- /.navbar-collapse -->
-	</nav>
+        <br>
+        <br>
 
-	<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
-	<script type="text/javascript" src="js/bootstrap.js"></script>
+        <nav class="navbar navbar-default" role="navigation">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="Dashboard.html">Universidad Tecnica Nacional</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="index.html">
+                            <span class="glyphicon glyphicon-th-large"></span>Dashboard</a>
+                    </li>
+                    <li>
+                        <a href="Estudiantes.html">
+                            <span class="glyphicon glyphicon-user"></span>Estudiantes</a>
+                    </li>
+                    <li>
+                        <a href="Carreras.html">
+                            <span class="glyphicon glyphicon-calendar"></span>Carreras</a>
+                    </li>
+                    <li>
+                        <a href="Usuarios.html">
+                            <span class="glyphicon glyphicon-collapse-up"></span>Usuarios</a>
+                    </li>
+                    <li class="dropdown">
+
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <span class="glyphicon glyphicon-refresh"></span> Hola Nombre Usuario
+                            <span class="caret"></span>
+                        </a>
+                        </a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="#"><span class="glyphicon glyphicon-cog"></span> Cerrar Sesion</a>
+                            </li>
+
+                        </ul>
+                    </li>
+
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </nav>
+        <br>
+
+
+
+        <div class="row">
+            <div class=" col-xs-5  ">
+                <h4><a href="Dashboard.html">Dashboard</a> > Carreras</h4>
+            </div>
+             <div class=" col-xs-1  col-xs-offset-6">
+               <a href="AgregarCarrera.html"><img src="Imagenes/add.png" class="img-responsive" alt="Image"></a> 
+            </div>
+        </div>
+        <br>
+        <center>
+            <div class="row">
+                <div class=" col-lg-12 ">
+                    <div class="panel panel-default">
+                        <!-- Default panel contents -->
+                        <div class="panel-heading"><b>Listado de Carreras</b>
+                        </div>
+
+                        <!-- Table -->
+                        <div class="table-responsive">
+                            <table class="table table-hover" id="tablacarreras">
+
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </center>
+    </div>
+    <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.js"></script>
+    <script type="text/javascript" src="js/localstorage.js"></script>
+    <script type="text/javascript">
+    prepareBinding();
+    crearTablaCarreras();
+    </script>
+
+
 </body>
+
 </html>
