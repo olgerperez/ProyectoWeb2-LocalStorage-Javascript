@@ -4,15 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="css/fileinput.css">
     <link rel="stylesheet" type="text/css" href="style.css">
 
-    <title>Agregar Estudiante</title>
+
+    <title>Editar Estudiante</title>
     <link type="image/x-icon" href="icono.ico" rel="icon" />
 </head>
 
 <body>
 
-    <div class="container"  id="div">
+    <div class="container" id="div">
         <br>
         <br>
 
@@ -57,16 +59,24 @@
         <center>
             <div class="row">
                 <div class="well col-xs-5 col-xs-offset-3 ">
-                    <h4>Agregar Estudiante
-                        <span class="label label-success">Nuevo</span>
+                    <h4>Editar Estudiante
+                        <span class="label label-warning">Editar</span>
                     </h4>
                     <form action="">
 
                         <div>
+                            <div id="imagen">
+
+                            </div>
                             <div class="row">
+
                                 <div class="col-lg-12">
                                     <br>
-                                    <input type="file" class="filestyle" data-buttonName="btn-primary" id="imagen">
+                                    <div class="form-group">
+                                        <input type="file" class="filestyle" data-buttonName="btn-primary" id="inputimagen">
+                                    </div>
+
+
                                     <!-- /input-group -->
                                 </div>
                                 <!-- /.col-lg-6 -->
@@ -106,13 +116,14 @@
                                 <input type="text" class="form-control" placeholder="Nivel de Ingles" id="nivel">
                             </div>
                             <br>
-                            <button class="btn btn-success" type="submit" id="btnGuardarEstudiante">
+                            <button class="btn btn-success" type="submit" id="btnEdi">
                                 <span class="glyphicon glyphicon-floppy-disk"></span>Guardar</button>
 
-                            <button class="btn btn-danger" type="submit" id="btnCancelar"><a href="Estudiantes.html">
-                                
-                                    <span class="glyphicon glyphicon-share-alt"></span>Cancelar</button>
-                            </a>
+                            <a href="Estudiantes.html" class="btn btn-danger" type="submit" id="btnCancelar">
+
+
+                                <span class="glyphicon glyphicon-share-alt"></span>Cancelar</a>
+
 
                         </div>
                     </form>
@@ -127,9 +138,11 @@
     <script type="text/javascript" src="js/bootstrap.js"></script>
     <script type="text/javascript" src="js/bootstrap-filestyle.min.js"></script>
     <script type="text/javascript" src="js/localstorage.js"></script>
+
     <script type="text/javascript">
     prepareBinding();
     fnCargarCarreras();
+    editarCargarEstudiantes();
     </script>
 
 

@@ -6,3 +6,10 @@ body {
     box-shadow: 5px 9px 21px #000205;
     height: 800px;
 }
+
+#divlogin {
+    background-color: white;
+    box-shadow: 5px 9px 21px #000205;
+    height: 800px;
+    width: 40%;
+}
