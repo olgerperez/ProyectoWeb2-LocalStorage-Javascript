@@ -18,6 +18,12 @@ function prepareBinding() {
     $('a[name="editar"]').click(function() {
         editarEstudiante(this.id);
     });
+    $('a[name="editarcarrera"]').click(function() {
+        editarCarrera(this.id);
+    });
+    $('a[name="editarusuario"]').click(function() {
+        editarUsuario(this.id);
+    });
     $('a[name="eliminar"]').click(function() {
         borrarEstudiante(this.id);
     });
@@ -29,6 +35,9 @@ function prepareBinding() {
     });
     $("#iniciar").click(function() {
         iniciarsesion();
+    });
+    $("#btnEditarCarrera").click(function() {
+        editarCarrerasNuevo();
     });
 
 
@@ -232,8 +241,8 @@ function crearTablaCarreras() {
             tablacarrera += '<td>' + carrer[i].codigo + '</td>';
             tablacarrera += '<td>' + carrer[i].carrera + '</td>';
 
-            tablacarrera += '<td><a type="button" class="btn btn-default editUser" name="editarcarrera" id="' + carrer[i].codigo + '"><span ><img src="Imagenes/editaaar.png" class="img-responsive" alt="Image" ></span></a>';
-            tablacarrera += '<a href="#" type="button" class="delete btn btn-default" name="eliminarcarrera" id="' + carrer[i].codigo + '"><span><img src="Imagenes/deleteee.png" class="img-responsive" alt="Image"></span></a></td>';
+            tablacarrera += '<td><a href="EditarCarrera.html" type="button" class="btn btn-default editUser" name="editarcarrera" id="' + carrer[i].codigo + '"><span ><img src="Imagenes/editaaar.png" class="img-responsive" alt="Image" ></span></a>';
+            tablacarrera += '<a href="Carreras.html" type="button" class="delete btn btn-default" name="eliminarcarrera" id="' + carrer[i].codigo + '"><span><img src="Imagenes/deleteee.png" class="img-responsive" alt="Image"></span></a></td>';
 
             document.getElementById("tablacarreras").innerHTML = tablacarrera;
         }
@@ -241,15 +250,16 @@ function crearTablaCarreras() {
 }
 
 function editarEstudiante(cedula) {
-
-    debugger;
-
-
     localStorage.setItem('IdEstudiante', cedula);
-
-
 }
 
+function editarUsuario(cedula) {
+    localStorage.setItem('IdUsuarioEditar', cedula);
+}
+
+function editarCarrera(id) {
+    localStorage.setItem('IdCarrera', id);
+}
 
 function editarCargarEstudiantes() {
 
@@ -283,6 +293,31 @@ function editarCargarEstudiantes() {
 
 
                 document.getElementById("imagen").innerHTML = image;
+
+            }
+        }
+    }
+}
+
+function editarCargarCarrera() {
+
+    var idtemp = localStorage.getItem('IdCarrera');
+
+    var car = JSON.parse(localStorage.getItem('Carreras'));
+    var idcarrera;
+
+    for (var i = 0; i < car.length; i++) {
+        if (car != undefined) {
+
+            idcarrera = car[i].codigo;
+
+            if (idcarrera == idtemp) {
+
+                var codigocarrera = car[i].codigo;
+                var nombrecarrera = car[i].carrera;
+
+                document.getElementById('codigo').value = codigocarrera;
+                document.getElementById('nombre').value = nombrecarrera;
 
             }
         }
@@ -329,6 +364,34 @@ function editarEstudiantesNuevo() {
     alert("ESTUDIANTE EDITADO CON EXITO")
 }
 
+function editarCarrerasNuevo() {
+
+    var idtemp = localStorage.getItem('IdCarrera');
+    var codigo = document.getElementById('codigo').value,
+        nombre = document.getElementById('nombre').value;
+
+
+    var car = JSON.parse(localStorage.getItem('Carreras'));
+    var codigocarrera;
+    debugger;
+    for (var i = 0; i < car.length; i++) {
+        if (car != undefined) {
+
+            codigocarrera = car[i].codigo;
+
+            if (codigocarrera == idtemp) {
+
+                car[i].codigo = codigo;
+                car[i].carrera = nombre;
+
+            }
+        }
+    }
+    localStorage.setItem('Carreras', JSON.stringify(car));
+    localStorage.removeItem('IdCarrera');
+
+    alert("CARRERA EDITADA CON EXITO")
+}
 
 
 function cambiarimagen() {
