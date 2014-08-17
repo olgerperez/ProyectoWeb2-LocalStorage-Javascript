@@ -12,59 +12,11 @@
 <body>
     <div class="container" id="div">
 
+       <br>
         <br>
+        <div id="barra"></div>
         <br>
 
-        <nav class="navbar navbar-default" role="navigation">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="Dashboard.html">Universidad Tecnica Nacional</a>
-            </div>
-
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse navbar-ex1-collapse">
-
-                <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a href="Dashboard.html">
-                            <span class="glyphicon glyphicon-th-large"></span>Dashboard</a>
-                    </li>
-                    <li>
-                        <a href="Estudiantes.html">
-                            <span class="glyphicon glyphicon-user"></span>Estudiantes</a>
-                    </li>
-                    <li>
-                        <a href="Carreras.html">
-                            <span class="glyphicon glyphicon-calendar"></span>Carreras</a>
-                    </li>
-                    <li>
-                        <a href="Usuarios.html">
-                            <span class="glyphicon glyphicon-collapse-up"></span>Usuarios</a>
-                    </li>
-                    <li class="dropdown">
-
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <span class="glyphicon glyphicon-refresh"></span> Hola Nombre Usuario
-                            <span class="caret"></span>
-                        </a>
-                        </a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="#"><span class="glyphicon glyphicon-cog"></span> Cerrar Sesion</a>
-                            </li>
-
-                        </ul>
-                    </li>
-
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </nav>
         <br>
 
 
@@ -101,8 +53,10 @@
     <script type="text/javascript" src="js/bootstrap.js"></script>
     <script type="text/javascript" src="js/localstorage.js"></script>
     <script type="text/javascript">
-    prepareBinding();
+    
     crearTablaCarreras();
+    cargarBarra();
+    prepareBinding();
     </script>
 
 

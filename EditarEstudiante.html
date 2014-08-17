@@ -15,46 +15,11 @@
 <body>
 
     <div class="container" id="div">
+      <br>
         <br>
+        <div id="barra"></div>
         <br>
 
-        <nav class="navbar navbar-default" role="navigation">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#">Universidad Tecnica Nacional</a>
-            </div>
-
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse navbar-ex1-collapse">
-
-                <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a href="Dashboard.html">
-                            <span class="glyphicon glyphicon-th-large"></span>Dashboard</a>
-                    </li>
-                    <li>
-                        <a href="Estudiantes.html">
-                            <span class="glyphicon glyphicon-user"></span>Estudiantes</a>
-                    </li>
-                    <li>
-                        <a href="Carreras.html">
-                            <span class="glyphicon glyphicon-calendar"></span>Carreras</a>
-                    </li>
-                    <li>
-                        <a href="Usuarios.html">
-                            <span class="glyphicon glyphicon-collapse-up"></span>Usuarios</a>
-                    </li>
-
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </nav>
         <br>
         <center>
             <div class="row">
@@ -116,8 +81,8 @@
                                 <input type="text" class="form-control" placeholder="Nivel de Ingles" id="nivel">
                             </div>
                             <br>
-                            <button class="btn btn-success" type="submit" id="btnEdi">
-                                <span class="glyphicon glyphicon-floppy-disk"></span>Guardar</button>
+                            <a href="Estudiantes.html" class="btn btn-success" type="submit" id="btnEdi">
+                                <span class="glyphicon glyphicon-floppy-disk"></span>Guardar</a>
 
                             <a href="Estudiantes.html" class="btn btn-danger" type="submit" id="btnCancelar">
 
@@ -143,6 +108,7 @@
     prepareBinding();
     fnCargarCarreras();
     editarCargarEstudiantes();
+    cargarBarra();
     </script>
 
 

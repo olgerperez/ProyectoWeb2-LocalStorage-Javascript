@@ -24,6 +24,9 @@ function prepareBinding() {
     $('a[name="eliminarusuario"]').click(function() {
         borrarUsuario(this.id);
     });
+    $('a[name="eliminarcarrera"]').click(function() {
+        borrarCarrera(this.id);
+    });
     $("#iniciar").click(function() {
         iniciarsesion();
     });
@@ -229,8 +232,8 @@ function crearTablaCarreras() {
             tablacarrera += '<td>' + carrer[i].codigo + '</td>';
             tablacarrera += '<td>' + carrer[i].carrera + '</td>';
 
-            tablacarrera += '<td><a type="button" class="btn btn-default editUser" id="' + carrer[i].codigo + '"><span ><img src="Imagenes/editaaar.png" class="img-responsive" alt="Image" ></span></a>';
-            tablacarrera += '<a href="#" type="button" class="delete btn btn-default" id="' + carrer[i].codigo + '"><span><img src="Imagenes/deleteee.png" class="img-responsive" alt="Image"></span></a></td>';
+            tablacarrera += '<td><a type="button" class="btn btn-default editUser" name="editarcarrera" id="' + carrer[i].codigo + '"><span ><img src="Imagenes/editaaar.png" class="img-responsive" alt="Image" ></span></a>';
+            tablacarrera += '<a href="#" type="button" class="delete btn btn-default" name="eliminarcarrera" id="' + carrer[i].codigo + '"><span><img src="Imagenes/deleteee.png" class="img-responsive" alt="Image"></span></a></td>';
 
             document.getElementById("tablacarreras").innerHTML = tablacarrera;
         }
@@ -410,6 +413,43 @@ function borrarUsuario(cedula) {
     localStorage.setItem('Usuarios', JSON.stringify(arrayTemporal));
 }
 
+
+
+function borrarCarrera(id) {
+
+    var idcarrera = id;
+    var arrayTemporal = [];
+    var car = JSON.parse(localStorage.getItem('Carreras'));
+    var idtemp;
+    debugger;
+    for (var i = 0; i < car.length; i++) {
+        if (car != undefined) {
+            idtemp = car[i].codigo;
+            if (idtemp == idcarrera) {
+
+                delete car[i];
+                break;
+            }
+        }
+    }
+    for (var i = 0; i < car.length; i++) {
+        if (car[i] != undefined) {
+            var carrera = {
+                "codigo": car[i].codigo,
+                "carrera": car[i].carrera
+            };
+
+
+            arrayTemporal.push(carrera);
+        }
+    }
+
+    localStorage.setItem('Carreras', JSON.stringify(arrayTemporal));
+}
+
+
+
+
 function iniciarsesion() {
     var usuario = document.getElementById('usuario').value,
         pass = document.getElementById('contra').value;
@@ -444,30 +484,30 @@ function cargarBarra() {
     barra += '<span class="icon-bar"></span>';
     barra += '<span class="icon-bar"></span>';
     barra += '</button>';
-    barra += '<a class="navbar-brand" href="#">Universidad Tecnica Nacional</a>'
+    barra += '<a class="navbar-brand" href="Dashboard.html">Universidad Tecnica Nacional</a>'
     barra += '</div>';
     barra += '            <!-- Collect the nav links, forms, and other content for toggling -->';
     barra += '<div class="collapse navbar-collapse navbar-ex1-collapse">';
     barra += ' <ul class="nav navbar-nav navbar-right">';
     barra += '<li>'
     barra += '<a href="Dashboard.html">'
-    barra += '<span class="glyphicon glyphicon-th-large"></span>Dashboard</a>';
+    barra += '<span class="glyphicon glyphicon-th-large"></span> Dashboard</a>';
     barra += '</li>';
     barra += '<li>'
     barra += '<a href="Estudiantes.html">'
-    barra += '<span class="glyphicon glyphicon-user"></span>Estudiantes</a>'
+    barra += '<span class="glyphicon glyphicon-user"></span> Estudiantes</a>'
     barra += '</li>'
     barra += '<li>'
     barra += '<a href="Carreras.html">'
-    barra += '<span class="glyphicon glyphicon-calendar"></span>Carreras</a>'
+    barra += '<span class="glyphicon glyphicon-calendar"></span> Carreras</a>'
     barra += '</li>'
     barra += '<li>'
     barra += '<a href="Usuarios.html">'
-    barra += '<span class="glyphicon glyphicon-collapse-up"></span>Usuarios</a>'
+    barra += '<span class="glyphicon glyphicon-collapse-up"></span> Usuarios</a>'
     barra += '</li>'
     barra += '<li class="dropdown">'
     barra += '<a href="#" class="dropdown-toggle" data-toggle="dropdown">';
-    barra += '<span class="glyphicon glyphicon-refresh"></span>Hola ' + idtemp;
+    barra += '<span class="glyphicon glyphicon-tag"></span> Hola ' + idtemp;
     barra += '           <span class="caret"></span>'
     barra += '</a>'
     barra += '     </a>'
