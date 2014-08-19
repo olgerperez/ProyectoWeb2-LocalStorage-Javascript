@@ -1,5 +1,5 @@
+//FUNCION PARA LLAMAR LOS CLICK SIN NECESIDAD DE UTILIZAR EL ONCLICK 
 function prepareBinding() {
-    //$( "#test_button" ).bind( "click", function() { my_alert('text 2');});
     $("#btnGuardarCarrera").click(function() {
         guardarCarrera();
     });
@@ -39,11 +39,12 @@ function prepareBinding() {
     $("#btnEditarCarrera").click(function() {
         editarCarrerasNuevo();
     });
-
-
-
+    $("#btnEditarUsuario").click(function() {
+        editarUsuariosNuevo();
+    });
 }
 
+//FUNCION PARA CARGAR LAS CARRERAS EN AGREGAR O EDITAR ESTUDIANTE
 function fnCargarCarreras() {
 
     var carreras = JSON.parse(localStorage.getItem('Carreras'));
@@ -57,8 +58,7 @@ function fnCargarCarreras() {
 }
 
 
-
-
+//FUNCION PARA GUARDAR LA CARRERA
 function guardarCarrera() {
     // obtener datos del form
     var codigo = document.getElementById('codigo').value,
@@ -70,19 +70,19 @@ function guardarCarrera() {
     } else {
 
 
-        // crear objeto estudiante
+        // crear objeto CARRERA
         var carrera = {
             "codigo": codigo,
             "carrera": nombre
         };
 
-        // leer los estudiantes de localstorage
+        // leer la carrera de localstorage
         var carreras = JSON.parse(localStorage.getItem('Carreras'));
         if (carreras === null) {
             carreras = [];
         }
 
-        // agregar el estudiante
+        // agregar la carrera
         carreras.push(carrera);
 
         // volver guardar en localstoraage
@@ -90,6 +90,7 @@ function guardarCarrera() {
     }
 }
 
+//FUNCION PARA GUARDAR ESTUDIANTES 
 function guardarEstdiantes() {
     // obtener datos del form
     var cedula = document.getElementById('cedula').value,
@@ -99,6 +100,7 @@ function guardarEstdiantes() {
         nivel = document.getElementById('nivel').value,
         carrera = document.getElementById('selectCarreras').value;
 
+    //VALIDACIONES PARA VERIFICAR QUE NINGUN CAMPO VENGA EN BLANCO
     if (cedula.length == 0 || nombre.length == 0 || apellidos.length == 0 || imagen.length == 0 || nivel.length == 0 || carrera == 0) {
         alert("NO PUEDE INGRESAR UN ESTUDIANTE CON CAMPOS EN BLANCOS")
     } else {
@@ -125,17 +127,12 @@ function guardarEstdiantes() {
         // volver guardar en localstoraage
         localStorage.setItem('Estudiantes', JSON.stringify(estu));
 
-        //    document.getElementById('cedula').value = "";
-        //   document.getElementById('nombre').value = "";
-        //   document.getElementById('apellidos').value = "";
-        //   document.getElementById('imagen').value = "";
-        //   document.getElementById('nivel').value = "";
         alert("ESTUDIANTE AGREGADO CON EXITO")
 
     }
 }
 
-
+//FUNCION PARA AGRAR EL USUARIO
 function guardarUsuario() {
     // obtener datos del form
     var cedula = document.getElementById('cedula').value,
@@ -145,13 +142,13 @@ function guardarUsuario() {
         role = document.getElementById('selectRole').value;
 
 
-
+    //CONDICION PARA VERIFICAR QUE NO VENGAN CAMPOS EN BLANCO
     if (cedula.length == 0 || nombre.length == 0 || apellidos.length == 0 || contraseña.length == 0 || role == 0) {
         alert("NO PUEDE INGRESAR UN USUARIO CON CAMPOS EN BLANCOS")
     } else {
 
 
-        // crear objeto estudiante
+        // crear objeto USUARIO
         var usuario = {
             "cedula": cedula,
             "nombre": nombre,
@@ -160,35 +157,31 @@ function guardarUsuario() {
             "role": role
         };
 
-        // leer los estudiantes de localstorage
+        // leer los USUARIOS de localstorage
         var user = JSON.parse(localStorage.getItem('Usuarios'));
         if (user === null) {
             user = [];
         }
 
-        // agregar el userdiante
+        // agregar el USUARIO
         user.push(usuario);
 
         // volver guardar en localstoraage
         localStorage.setItem('Usuarios', JSON.stringify(user));
 
-        //    document.getElementById('cedula').value = "";
-        //   document.getElementById('nombre').value = "";
-        //   document.getElementById('apellidos').value = "";
-        //   document.getElementById('imagen').value = "";
-        //   document.getElementById('nivel').value = "";
+        //ALERTA
         alert("USUARIO AGREGADO CON EXITO")
-
     }
 }
 
 
-
+//FUNCION PARA CREAR LA TABLA ESTUDIANTES CARGANDO LOS DATOS DESDE LOCAL STORAGE
+//SE LE PONEN EL NOMBRE DE LA CEDULA A LAS ETIQUETAS A PARA FACILITAR EL EDITAR Y ELIMNAR
 function crearTablaEstudiantes() {
 
-    var headingTable = "<tr><th>Imagen</th><th>Cédula</th><th>Nombre</th><th>Apellidos</th><th>Carrera</th><th>Ingles</th><th></th></tr>";
+    var encabezado = "<tr><th>Imagen</th><th>Cédula</th><th>Nombre</th><th>Apellidos</th><th>Carrera</th><th>Ingles</th><th></th></tr>";
     var estu = JSON.parse(localStorage.getItem('Estudiantes'));
-    var tablaestu = headingTable;
+    var tablaestu = encabezado;
 
     for (var i = 0; i < estu.length; i++) {
         if (estu != undefined) {
@@ -207,6 +200,8 @@ function crearTablaEstudiantes() {
     }
 }
 
+//FUNCION PARA CREAR LA TABLA USUARIOS CARGANDO LOS DATOS DESDE LOCAL STORAGE
+//SE LE PONEN EL NOMBRE DE LA CEDULA A LAS ETIQUETAS A PARA FACILITAR EL EDITAR Y ELIMNAR
 function crearTablaUsuarios() {
 
     var headingTable = "<tr><th>Cédula</th><th>Nombre</th><th>Apellidos</th><th>Role</th><th>Contraseña</th><th></th></tr>";
@@ -221,7 +216,7 @@ function crearTablaUsuarios() {
             tablausuarios += '<td>' + user[i].apellidos + '</td>';
             tablausuarios += '<td>' + user[i].role + '</td>';
             tablausuarios += '<td>' + "**************" + '</td>';
-            tablausuarios += '<td><a type="button" class="btn btn-default editUser"  name="editarusuario" id="' + user[i].cedula + '"><span ><img src="Imagenes/editaaar.png" class="img-responsive" alt="Image" ></span></a>';
+            tablausuarios += '<td><a href="EditarUsuario.html" type="button" class="btn btn-default editUser"  name="editarusuario" id="' + user[i].cedula + '"><span ><img src="Imagenes/editaaar.png" class="img-responsive" alt="Image" ></span></a>';
             tablausuarios += '<a href="Usuarios.html" type="button" class="delete btn btn-default" name="eliminarusuario" id="' + user[i].cedula + '"><span><img src="Imagenes/deleteee.png" class="img-responsive" alt="Image"></span></a></td>';
 
             document.getElementById("tablausuarios").innerHTML = tablausuarios;
@@ -229,6 +224,8 @@ function crearTablaUsuarios() {
     }
 }
 
+//FUNCION PARA CREAR LA TABLA CARRERAS CARGANDO LOS DATOS DESDE LOCAL STORAGE
+//SE LE PONEN EL NOMBRE DE LA ID A LAS ETIQUETAS A PARA FACILITAR EL EDITAR Y ELIMNAR
 function crearTablaCarreras() {
 
     var headingTable = "<tr><th>Codigo</th><th>Nombre</th><th></th></tr>";
@@ -249,18 +246,19 @@ function crearTablaCarreras() {
     }
 }
 
+//FUNCION PARA PASAR POR PARAMETRO DE LA CEDULA DEL ESTUDIANTE POR LOCAL STORAGE
 function editarEstudiante(cedula) {
     localStorage.setItem('IdEstudiante', cedula);
 }
-
+//FUNCION PARA PASAR POR PARAMETRO DE LA CEDULA DEL USUARIO POR LOCAL STORAGE
 function editarUsuario(cedula) {
     localStorage.setItem('IdUsuarioEditar', cedula);
 }
-
+//FUNCION PARA PASAR POR PARAMETRO DEL ID DE LA CARRERA POR LOCAL STORAGE
 function editarCarrera(id) {
     localStorage.setItem('IdCarrera', id);
 }
-
+//FUNCION QUE OBTIENE LE VALOR DEL ID DE ESTUDIANTE DE LOCAL STORAGE Y LOS CARGA EN LOS CAMPOS PARA EDITARLO
 function editarCargarEstudiantes() {
 
     var idtemp = localStorage.getItem('IdEstudiante');
@@ -287,18 +285,44 @@ function editarCargarEstudiantes() {
                 document.getElementById('nivel').value = nivel;
                 //document.getElementById('inputimage').value = "HOLA";
 
+                //COLOCA LA IMAGEN 
                 var image = '<img src="Imagenes/' + imagen + '"  alt="Image width="140" height="135">'
-                    //  var image= '<img src="Imagenes/' + imagen + '"  alt="Image width="140" height="135" class="file-preview-image">'
-
-
 
                 document.getElementById("imagen").innerHTML = image;
-
             }
         }
     }
 }
 
+//FUNCION QUE OBTIENE LE VALOR DEL ID DE USUARIO DE LOCAL STORAGE Y LOS CARGA EN LOS CAMPOS PARA EDITARLO
+function editarCargarUsuarios() {
+
+    var idtemp = localStorage.getItem('IdUsuarioEditar');
+
+    var user = JSON.parse(localStorage.getItem('Usuarios'));
+    var cedu;
+
+    for (var i = 0; i < user.length; i++) {
+        if (user != undefined) {
+
+            cedu = user[i].cedula;
+
+            if (cedu == idtemp) {
+
+                var nombreuser = user[i].nombre;
+                var apellidos = user[i].apellidos;
+                var contra = user[i].contraseña;
+
+                document.getElementById('cedula').value = cedu;
+                document.getElementById('nombre').value = nombreuser;
+                document.getElementById('apellidos').value = apellidos;
+                document.getElementById('contraseña').value = contra;
+            }
+        }
+    }
+}
+
+//FUNCION QUE OBTIENE LE VALOR DEL ID DE LA CARREA DE LOCAL STORAGE Y LOS CARGA EN LOS CAMPOS PARA EDITARLO
 function editarCargarCarrera() {
 
     var idtemp = localStorage.getItem('IdCarrera');
@@ -324,14 +348,14 @@ function editarCargarCarrera() {
     }
 }
 
-
+//FUNCION PARA EDITAR EL ESTUDIANTE OBTIENE EL ID Y LO COMPARA LUEGO LOS GUARDA
 function editarEstudiantesNuevo() {
 
     var idtemp = localStorage.getItem('IdEstudiante');
     var cedula = document.getElementById('cedula').value,
         nombre = document.getElementById('nombre').value,
         apellidos = document.getElementById('apellidos').value,
-        //imagen = document.getElementById('inputimagen').files[0].name,
+        imagen = document.getElementById('inputimagen').files[0].name,
         nivel = document.getElementById('nivel').value,
         carrera = document.getElementById('selectCarreras').value;
 
@@ -364,6 +388,43 @@ function editarEstudiantesNuevo() {
     alert("ESTUDIANTE EDITADO CON EXITO")
 }
 
+//FUNCION PARA EDITAR EL USUARIO OBTIENE EL ID Y LO COMPARA LUEGO LOS GUARDA
+function editarUsuariosNuevo() {
+
+    var idtemp = localStorage.getItem('IdUsuarioEditar');
+    var cedula = document.getElementById('cedula').value,
+        nombre = document.getElementById('nombre').value,
+        apellidos = document.getElementById('apellidos').value,
+        contraseña = document.getElementById('contraseña').value,
+        role = document.getElementById('selectRole').value;
+
+
+    var user = JSON.parse(localStorage.getItem('Usuarios'));
+    var cedu;
+    debugger;
+    for (var i = 0; i < user.length; i++) {
+        if (user != undefined) {
+
+            cedu = user[i].cedula;
+
+            if (cedu == idtemp) {
+
+                user[i].nombre = nombre;
+                user[i].apellidos = apellidos;
+                user[i].contraseña = contraseña;
+                user[i].role = role;
+                user[i].cedula = cedula;
+
+            }
+        }
+    }
+    localStorage.setItem('Usuarios', JSON.stringify(user));
+    localStorage.removeItem('IdUsuarioEditar');
+
+    alert("ESTUDIANTE EDITADO CON EXITO")
+}
+
+//FUNCION PARA EDITAR LA CARRERA OBTIENE EL ID Y LO COMPARA LUEGO LOS GUARDA
 function editarCarrerasNuevo() {
 
     var idtemp = localStorage.getItem('IdCarrera');
@@ -393,7 +454,7 @@ function editarCarrerasNuevo() {
     alert("CARRERA EDITADA CON EXITO")
 }
 
-
+//FUNCION PARA CAMBIAR LA IMAGEN
 function cambiarimagen() {
 
     var imagen = document.getElementById('inputimagen').files[0].name;
@@ -405,6 +466,8 @@ function cambiarimagen() {
 }
 
 
+//FUNCION PARA BORRAR ESTUDIANTE, OBTIENE LA CEDULA, BORRA EL OBJETO DE LA POSICION,
+// LUEGO CREA UN ARREGLO NUEVO Y LO VUELVE A CARGAR EN LOCAL STORAGE-
 function borrarEstudiante(cedula) {
 
     var cedu = cedula;
@@ -441,6 +504,9 @@ function borrarEstudiante(cedula) {
     localStorage.setItem('Estudiantes', JSON.stringify(arrayTemporal));
 }
 
+
+//FUNCION PARA BORRAR USUARIO, OBTIENE LA CEDULA, BORRA EL OBJETO DE LA POSICION,
+// LUEGO CREA UN ARREGLO NUEVO Y LO VUELVE A CARGAR EN LOCAL STORAGE-
 function borrarUsuario(cedula) {
 
     var cedu = cedula;
@@ -477,7 +543,8 @@ function borrarUsuario(cedula) {
 }
 
 
-
+//FUNCION PARA BORRAR CARRERA, OBTIENE LA CEDULA, BORRA EL OBJETO DE LA POSICION,
+// LUEGO CREA UN ARREGLO NUEVO Y LO VUELVE A CARGAR EN LOCAL STORAGE-
 function borrarCarrera(id) {
 
     var idcarrera = id;
@@ -510,10 +577,10 @@ function borrarCarrera(id) {
     localStorage.setItem('Carreras', JSON.stringify(arrayTemporal));
 }
 
-
-
-
+//FUNCION PARA VALIDAR USUARIO Y CONTRASEÑA AL INICIAR SESION Y TIENE POR DEFECTO EL USUARIO ADMIN
 function iniciarsesion() {
+    var admin = "Admin";
+    var contra = "12345";
     var usuario = document.getElementById('usuario').value,
         pass = document.getElementById('contra').value;
     var usuariocomparar;
@@ -529,15 +596,21 @@ function iniciarsesion() {
                 localStorage.setItem('IdUsuario', usuario);
 
                 setTimeout("location.href='Dashboard.html'", 0);
+            } else if (usuario == admin && pass == contra) {
+                localStorage.setItem('IdUsuario', "Admin");
+
+                setTimeout("location.href='Dashboard.html'", 0);
+            } else {
+                alert("USUARIO O CONTRASEÑA INCORRECTA");
             }
         }
     }
 }
 
+//FUNCION PARA CARGAR LA BARRA EN TODOS LOS HTML, Y PONE EL USUARIO QUE SE LOGUEA CON LA SIGUIENTE HOLA+"NOMBRE USUARIO"
 function cargarBarra() {
 
     var idtemp = localStorage.getItem('IdUsuario');
-
 
     var barra = '<nav class="navbar navbar-default" role="navigation">'
     barra += ' <div class="navbar-header" id="barra">';
@@ -579,14 +652,11 @@ function cargarBarra() {
     barra += '<a href="Login.html">'
     barra += '<span class="glyphicon glyphicon-cog"></span>Cerrar Sesion</a>'
     barra += '</li>'
-
     barra += '</ul>'
     barra += '</li>'
-
     barra += '</ul>'
     barra += ' </div>'
     barra += ' </nav>'
-
 
     document.getElementById("barra").innerHTML = barra;
 }

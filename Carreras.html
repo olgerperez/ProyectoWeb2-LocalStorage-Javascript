@@ -10,50 +10,53 @@
 </head>
 
 <body>
-    <div class="container" id="div">
+    <header>
+        <div class="container" id="div">
 
-       <br>
-        <br>
-        <div id="barra"></div>
-        <br>
+            <br>
+            <br>
+            <div id="barra"></div>
+            <br>
 
-        <br>
+            <br>
 
 
 
-        <div class="row">
-            <div class=" col-xs-5  ">
-                <h4><a href="Dashboard.html">Dashboard</a> > Carreras</h4>
-            </div>
-             <div class=" col-xs-1  col-xs-offset-6">
-               <a href="AgregarCarrera.html"><img src="Imagenes/add.png" class="img-responsive" alt="Image"></a> 
-            </div>
-        </div>
-        <br>
-        <center>
             <div class="row">
-                <div class=" col-lg-12 ">
-                    <div class="panel panel-default">
-                        <!-- Default panel contents -->
-                        <div class="panel-heading"><b>Listado de Carreras</b>
-                        </div>
+                <div class=" col-xs-5  ">
+                    <h4><a href="Dashboard.html">Dashboard</a> > Carreras</h4>
+                </div>
+                <div class=" col-xs-1  col-xs-offset-6">
+                    <a href="AgregarCarrera.html">
+                        <img src="Imagenes/add.png" class="img-responsive" alt="Image">
+                    </a>
+                </div>
+            </div>
+            <br>
+            <center>
+                <div class="row">
+                    <div class=" col-lg-12 ">
+                        <div class="panel panel-default">
+                            <!-- Default panel contents -->
+                            <div class="panel-heading"><b>Listado de Carreras</b>
+                            </div>
 
-                        <!-- Table -->
-                        <div class="table-responsive">
-                            <table class="table table-hover" id="tablacarreras">
+                            <!-- Table -->
+                            <div class="table-responsive">
+                                <table class="table table-hover" id="tablacarreras">
 
-                            </table>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </center>
-    </div>
+            </center>
+        </div>
+    </header>
     <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.js"></script>
     <script type="text/javascript" src="js/localstorage.js"></script>
     <script type="text/javascript">
-    
     crearTablaCarreras();
     cargarBarra();
     prepareBinding();

@@ -1,15 +1,37 @@
 body {
     background-image: url('Imagenes/fondo.jpg');
 }
+.panel-heading{
+	background-color: #4899F1!important;
+	border-color: #E27846!important;
+}
+
 #div {
     background-color: white;
     box-shadow: 5px 9px 21px #000205;
     height: 800px;
 }
-
 #divlogin {
     background-color: white;
     box-shadow: 5px 9px 21px #000205;
     height: 800px;
     width: 40%;
+}
+.navbar {
+    background-color: rgb(240, 156, 79);
+    box-shadow: 4px 3px 29px #A77C47;
+}
+
+.panel{
+	box-shadow: 1px 9px 16px #888888;
+	border-color: #F80000;
+}
+
+.btn-default{
+	background-color:rgb(255, 133, 0)!important;
+}
+
+.well{
+	background-color: #7A78B1!important;
+	box-shadow: 1px 9px 16px #888888;
 }

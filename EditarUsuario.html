@@ -64,13 +64,13 @@
                                 <input type="password" class="form-control" placeholder="Contraseña" id="contraseña">
                             </div>
                             <br>
-                            <button class="btn btn-success" type="submit" id="btnGuardarUsuario">
-                                <span class="glyphicon glyphicon-floppy-disk"></span>Guardar</button>
+                            <a href="Usuarios.html" class="btn btn-success" type="submit" id="btnEditarUsuario">
+                                <span class="glyphicon glyphicon-floppy-disk"></span>Guardar</a>
 
-                            <button class="btn btn-danger" type="submit" id="btnCancelar">
-                                <a href="Usuarios.html">
-                                    <span class="glyphicon glyphicon-share-alt"></span>Cancelar</button>
-                            </a>
+                            <a href="Usuarios.html" class="btn btn-danger" type="submit" id="btnCancelar">
+                             
+                                    <span class="glyphicon glyphicon-share-alt"></span>Cancelar</a>
+                          
 
                         </div>
                     </form>
@@ -87,6 +87,7 @@
     <script type="text/javascript" src="js/localstorage.js"></script>
     <script type="text/javascript">
     cargarBarra();
+    editarCargarUsuarios();
     prepareBinding();
     </script>
 
