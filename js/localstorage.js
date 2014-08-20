@@ -260,9 +260,8 @@ function editarCarrera(id) {
 }
 //FUNCION QUE OBTIENE LE VALOR DEL ID DE ESTUDIANTE DE LOCAL STORAGE Y LOS CARGA EN LOS CAMPOS PARA EDITARLO
 function editarCargarEstudiantes() {
-
     var idtemp = localStorage.getItem('IdEstudiante');
-
+    debugger;
     var estu = JSON.parse(localStorage.getItem('Estudiantes'));
     var cedu;
 
@@ -283,7 +282,7 @@ function editarCargarEstudiantes() {
                 document.getElementById('nombre').value = nombreEstu;
                 document.getElementById('apellidos').value = apellidos;
                 document.getElementById('nivel').value = nivel;
-                //document.getElementById('inputimage').value = "HOLA";
+                //document.getElementById('inputimagen').value = imagen;
 
                 //COLOCA LA IMAGEN 
                 var image = '<img src="Imagenes/' + imagen + '"  alt="Image width="140" height="135">'
@@ -581,30 +580,37 @@ function borrarCarrera(id) {
 function iniciarsesion() {
     var admin = "Admin";
     var contra = "12345";
+    debugger;
     var usuario = document.getElementById('usuario').value,
         pass = document.getElementById('contra').value;
     var usuariocomparar;
     var contracomparar;
     var user = JSON.parse(localStorage.getItem('Usuarios'));
+    var validad = user;
+    if (validad == null) {
+        if (usuario == admin && pass == contra) {
+            localStorage.setItem('IdUsuario', "Admin");
+            setTimeout("location.href='Dashboard.html'", 0);
+        }
+    } else {
 
-    for (var i = 0; i < user.length; i++) {
-        if (user != undefined) {
-            usuariocomparar = user[i].nombre;
-            contracomparar = user[i].contraseña;
-            if (usuariocomparar == usuario && contracomparar == pass) {
-                //location.href='Dashboard.html';
-                localStorage.setItem('IdUsuario', usuario);
 
-                setTimeout("location.href='Dashboard.html'", 0);
-            } else if (usuario == admin && pass == contra) {
-                localStorage.setItem('IdUsuario', "Admin");
-
-                setTimeout("location.href='Dashboard.html'", 0);
-            } else {
-                alert("USUARIO O CONTRASEÑA INCORRECTA");
+        for (var i = 0; i < user.length; i++) {
+            if (user != undefined) {
+                usuariocomparar = user[i].nombre;
+                contracomparar = user[i].contraseña;
+                if (usuariocomparar == usuario && contracomparar == pass) {
+                    //location.href='Dashboard.html';
+                    localStorage.setItem('IdUsuario', usuario);
+                    setTimeout("location.href='Dashboard.html'", 0);
+                } else {
+                    alert("Usuario o Contraseña incorrecta")
+                }
             }
         }
     }
+
+
 }
 
 //FUNCION PARA CARGAR LA BARRA EN TODOS LOS HTML, Y PONE EL USUARIO QUE SE LOGUEA CON LA SIGUIENTE HOLA+"NOMBRE USUARIO"

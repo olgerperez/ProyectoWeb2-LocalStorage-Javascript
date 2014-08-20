@@ -11,76 +11,74 @@
 </head>
 
 <body>
+    <header>
+        <div class="container" id="div">
+            <br>
+            <br>
+            <div id="barra"></div>
+            <br>
 
-    <div class="container" id="div">
-        <br>
-        <br>
-        <div id="barra"></div>
-        <br>
+            <br>
+            <center>
+                <div class="row">
+                    <div class="well col-xs-5 col-xs-offset-3 ">
+                        <h4>Editar Usuario
+                            <span class="label label-warning">Editar</span>
+                        </h4>
+                        <form action="">
 
-        <br>
-        <center>
-            <div class="row">
-                <div class="well col-xs-5 col-xs-offset-3 ">
-                    <h4>Editar Usuario
-                        <span class="label label-warning">Editar</span>
-                    </h4>
-                    <form action="">
+                            <div>
+                                <br>
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-sound-5-1"></span>
+                                    </span>
+                                    <input type="text" class="form-control" placeholder="Cedula" id="cedula">
+                                </div>
+                                <br>
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-user"></span>
+                                    </span>
+                                    <input type="text" class="form-control" placeholder="Nombre" id="nombre">
+                                </div>
+                                <br>
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-hand-right"></span>
+                                    </span>
+                                    <input type="text" class="form-control" placeholder="Apellidos" id="apellidos">
+                                </div>
+                                <br>
+                                <div class="form-group">
+                                    <select id="selectRole" class="form-control">
+                                        <option>Administrador</option>
+                                        <option>Director de Carrera</option>
+                                    </select>
+                                </div>
+                                <br>
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-lock"></span>
+                                    </span>
+                                    <input type="password" class="form-control" placeholder="Contraseña" id="contraseña">
+                                </div>
+                                <br>
+                                <a href="Usuarios.html" class="btn btn-success" type="submit" id="btnEditarUsuario">
+                                    <span class="glyphicon glyphicon-floppy-disk"></span>Guardar</a>
 
-                        <div>
-                            <br>
-                            <div class="input-group">
-                                <span class="input-group-addon">
-                                    <span class="glyphicon glyphicon-sound-5-1"></span>
-                                </span>
-                                <input type="text" class="form-control" placeholder="Cedula" id="cedula">
-                            </div>
-                            <br>
-                            <div class="input-group">
-                                <span class="input-group-addon">
-                                    <span class="glyphicon glyphicon-user"></span>
-                                </span>
-                                <input type="text" class="form-control" placeholder="Nombre" id="nombre">
-                            </div>
-                            <br>
-                            <div class="input-group">
-                                <span class="input-group-addon">
-                                    <span class="glyphicon glyphicon-hand-right"></span>
-                                </span>
-                                <input type="text" class="form-control" placeholder="Apellidos" id="apellidos">
-                            </div>
-                            <br>
-                            <div class="form-group">
-                                <select id="selectRole" class="form-control">
-                                    <option>Administrador</option>
-                                    <option>Director de Carrera</option>
-                                </select>
-                            </div>
-                            <br>
-                            <div class="input-group">
-                                <span class="input-group-addon">
-                                    <span class="glyphicon glyphicon-lock"></span>
-                                </span>
-                                <input type="password" class="form-control" placeholder="Contraseña" id="contraseña">
-                            </div>
-                            <br>
-                            <a href="Usuarios.html" class="btn btn-success" type="submit" id="btnEditarUsuario">
-                                <span class="glyphicon glyphicon-floppy-disk"></span>Guardar</a>
+                                <a href="Usuarios.html" class="btn btn-danger" type="submit" id="btnCancelar">
 
-                            <a href="Usuarios.html" class="btn btn-danger" type="submit" id="btnCancelar">
-                             
                                     <span class="glyphicon glyphicon-share-alt"></span>Cancelar</a>
-                          
 
-                        </div>
-                    </form>
+
+                            </div>
+                        </form>
+                    </div>
                 </div>
-            </div>
-        </center>
-
-
-    </div>
-
+            </center>
+        </div>
+    </header>
     <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.js"></script>
     <script type="text/javascript" src="js/bootstrap-filestyle.min.js"></script>

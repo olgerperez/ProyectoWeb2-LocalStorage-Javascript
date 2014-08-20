@@ -9,57 +9,51 @@
 </head>
 
 <body>
+    <header>
+        <div class="container">
+            <br>
+            <br>
+            <div id="barra"></div>
+            <br>
 
-    <div class="container">
-        <br>
-        <br>
-        <div id="barra"></div>
-        <br>
+            <br>
+            <br>
+            <center>
+                <div class="row">
+                    <div class="well col-xs-5 col-xs-offset-3 ">
+                        <h4>Editar Carrera
+                            <span class="label label-warning">Editar</span>
+                        </h4>
+                        <form action="">
 
-        <br>
-        <br>
-        <center>
-            <div class="row">
-                <div class="well col-xs-5 col-xs-offset-3 ">
-                    <h4>Editar Carrera
-                        <span class="label label-warning">Editar</span>
-                    </h4>
-                    <form action="">
+                            <div>
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-barcode"></span>
+                                    </span>
+                                    <input id="codigo" type="text" class="form-control" placeholder="Codigo">
+                                </div>
 
-                        <div>
-                            <div class="input-group">
-                                <span class="input-group-addon">
-                                    <span class="glyphicon glyphicon-barcode"></span>
-                                </span>
-                                <input id="codigo" type="text" class="form-control" placeholder="Codigo">
+                                <br>
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-font"></span>
+                                    </span>
+                                    <input id="nombre" type="text" class="form-control" placeholder="Nombre de la Carrera">
+                                </div>
+
+                                <br>
+                                <a href="Carreras.html" class="btn btn-success" type="submit" id="btnEditarCarrera">
+                                    <span class="glyphicon glyphicon-floppy-disk"></span>Guardar</a>
+                                <a href="Carreras.html" class="btn btn-danger" type="submit" id="btnCancelar">
+                                    <span class="glyphicon glyphicon-share-alt"></span>Cancelar</a>
                             </div>
-
-                            <br>
-                            <div class="input-group">
-                                <span class="input-group-addon">
-                                    <span class="glyphicon glyphicon-font"></span>
-                                </span>
-                                <input id="nombre" type="text" class="form-control" placeholder="Nombre de la Carrera">
-                            </div>
-
-                            <br>
-                            <a href="Carreras.html" class="btn btn-success" type="submit" id="btnEditarCarrera">
-                                <span class="glyphicon glyphicon-floppy-disk"></span>Guardar</a>
-                            <a href="Carreras.html" class="btn btn-danger" type="submit" id="btnCancelar">
-                                <span class="glyphicon glyphicon-share-alt"></span>Cancelar</a>
-                        </div>
-
-
-                    </form>
-
+                        </form>
+                    </div>
                 </div>
-
-
-            </div>
-        </center>
-
-
-    </div>
+            </center>
+        </div>
+    </header>
 
     <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.js"></script>
